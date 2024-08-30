@@ -7,7 +7,7 @@ import { RiInstagramFill } from "react-icons/ri";
 const Footer = () => {
   return (
     <>
-      <section className='sec_pad my-12 bg-[#EEEFFB]'>
+      <section className='sec_pad mt-12 bg-[#EEEFFB]'>
         <Container>
           <div className="flex justify-between">
             <div className="w-1/3">
