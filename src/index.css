@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .sec_pad {
+        @apply py-16
+    }
+    .heading {
+        @apply text-[42px] font-bold pb-4 font-jsans
+    }
+    .b_title {
+        @apply text-[18px] font-bold pb-[12px]
+    }
+    .clr {
+        @apply h-[5px] w-[20px] rounded-lg
+    }
+}
