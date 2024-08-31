@@ -2,6 +2,7 @@ import React from 'react'
 import Container from './Container'
 import Logo from '../assets/logo.png'
 import { IoSearch } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -13,11 +14,11 @@ const Navbar = () => {
                     </div>
                     <div className="w-[50%]">
                         <ul className="flex gap-x-10 items-center font-lato">
-                            <li>Home</li>
+                            <li><Link to='/'>Home</Link></li>
                             <li>Pages</li>
                             <li>Products</li>
                             <li>Blog</li>
-                            <li>Shop</li>
+                            <li><Link to='/shop'>Shop</Link></li>
                             <li>Contact</li>
                         </ul>
                     </div>

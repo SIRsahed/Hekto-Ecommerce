@@ -9,6 +9,7 @@ import DiscountItem from '../components/DiscountItem'
 import TopCategories from '../components/TopCategories'
 import UpdateBan from '../components/UpdateBan'
 import Logos from '../components/Logos'
+import LatestBlog from '../components/LatestBlog'
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
       <TopCategories/>
       <UpdateBan/>
       <Logos/>
+      <LatestBlog/>
     </>
   )
 }
