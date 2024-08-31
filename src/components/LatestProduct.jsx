@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import Container from './Container'
-import { Tabs } from '@ark-ui/react'
 import { FiShoppingCart } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { LuZoomIn } from "react-icons/lu";
 import { apidata } from './ContextApi'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 
 const LatestProduct = () => {
 
@@ -18,21 +19,24 @@ const LatestProduct = () => {
 
 
     return (
-        <section className='sec_pad'>
+        <section className='sec_pad lateproducts'>
             <Container>
                 <div className="text-center">
                     <h2 className='heading'>Leatest Products</h2>
                 </div>
                 <div className="">
-                    <Tabs.Root defaultValue="new_arrival">
-                        <Tabs.List className='flex gap-x-20 justify-center mb-[50px]'>
-                            <Tabs.Trigger value="new_arrival" className='text-[18px] font-bold text-[#151875] font-lato'>New Arrival</Tabs.Trigger>
-                            <Tabs.Trigger value="best_seller" className='text-[18px] font-bold text-[#151875] font-lato'>Best Seller</Tabs.Trigger>
-                            <Tabs.Trigger value="featured" className='text-[18px] font-bold text-[#151875] font-lato'>Featured</Tabs.Trigger>
-                            <Tabs.Trigger value="speacial_offer" className='text-[18px] font-bold text-[#151875] font-lato'>Special Offer</Tabs.Trigger>
-                            <Tabs.Indicator />
-                        </Tabs.List>
-                        <Tabs.Content value="new_arrival">
+                    <Tabs>
+                        <TabList className='pb-12 flex justify-center'>
+                            <Tab><h3 className='text-[18px] font-bold font-lato px-5'
+                            >New Arrival</h3></Tab>
+                            <Tab><h3 className='text-[18px] font-bold font-lato px-5'
+                            >Best Seller</h3></Tab>
+                            <Tab><h3 className='text-[18px] font-bold font-lato px-5'
+                            >Featured</h3></Tab>
+                            <Tab><h3 className='text-[18px] font-bold font-lato px-5'
+                            >Special Offer</h3></Tab>
+                        </TabList>
+                        <TabPanel>
                             <div className="flex justify-between flex-wrap font-jsans">
                                 {NewArrival.map((product) => (
                                     <div className="w-[32%] group mb-[50px]">
@@ -59,92 +63,92 @@ const LatestProduct = () => {
                                     </div>
                                 ))}
                             </div>
-                        </Tabs.Content>
-                        <Tabs.Content value="best_seller">
+                        </TabPanel>
+                        <TabPanel>
                             <div className="flex justify-between flex-wrap font-jsans">
-                                {BestSeller.map((product)=>(
-                                <div className="w-[32%] group mb-[50px]">
-                                    <div className="w-full bg-[#F6F7FB] h-[270px] py-3 flex justify-center relative overflow-hidden group-hover:bg-white">
-                                        <img src={product.thumbnail} alt='latest_product' />
-                                        <div className="absolute bottom-[-150px] left-5 flex flex-col text-[20px] text-[#1389FF] group-hover:bottom-6 duration-500 ease-in-out">
-                                            <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FiShoppingCart /></div>
-                                            <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FaRegHeart /></div>
-                                            <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><LuZoomIn /></div>
+                                {BestSeller.map((product) => (
+                                    <div className="w-[32%] group mb-[50px]">
+                                        <div className="w-full bg-[#F6F7FB] h-[270px] py-3 flex justify-center relative overflow-hidden group-hover:bg-white">
+                                            <img src={product.thumbnail} alt='latest_product' />
+                                            <div className="absolute bottom-[-150px] left-5 flex flex-col text-[20px] text-[#1389FF] group-hover:bottom-6 duration-500 ease-in-out">
+                                                <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FiShoppingCart /></div>
+                                                <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FaRegHeart /></div>
+                                                <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><LuZoomIn /></div>
+                                            </div>
+                                            <div className="absolute top-[-40px] left-2 -rotate-[0] duration-700 ease-in-out group-hover:-rotate-[25deg] group-hover:top-7">
+                                                <h5 className='text-[16px] text-[#FFF] px-[50px] py-2 bg-[#3F509E]'>Sale</h5>
+                                            </div>
                                         </div>
-                                        <div className="absolute top-[-40px] left-2 -rotate-[0] duration-700 ease-in-out group-hover:-rotate-[25deg] group-hover:top-7">
-                                            <h5 className='text-[16px] text-[#FFF] px-[50px] py-2 bg-[#3F509E]'>Sale</h5>
+                                        <div className="flex justify-between pt-3 bg-white">
+                                            <div className="">
+                                                <h4 className='text-[16px] font-normal text-[#151875] relative after:absolute after:content-[""] after:h-[2px] after:w-full after:bg-[#EEEFFB] after:bottom-0 after:left-0'>{product.title}</h4>
+                                            </div>
+                                            <div className="flex">
+                                                <h4 className='text-[16px] font-normal text-[#151875] pr-4'>${product.price}</h4>
+                                                <h5 className='text-[16px] font-normal text-[#FB2448] pr-4 line-through'>$65.00</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex justify-between pt-3 bg-white">
-                                        <div className="">
-                                            <h4 className='text-[16px] font-normal text-[#151875] relative after:absolute after:content-[""] after:h-[2px] after:w-full after:bg-[#EEEFFB] after:bottom-0 after:left-0'>{product.title}</h4>
-                                        </div>
-                                        <div className="flex">
-                                            <h4 className='text-[16px] font-normal text-[#151875] pr-4'>${product.price}</h4>
-                                            <h5 className='text-[16px] font-normal text-[#FB2448] pr-4 line-through'>$65.00</h5>
-                                        </div>
-                                    </div>
-                                </div>
                                 ))}
                             </div>
-                        </Tabs.Content>
-                        <Tabs.Content value="featured">
+                        </TabPanel>
+                        <TabPanel>
                             <div className="flex justify-between flex-wrap font-jsans">
-                                {Featured.map((product)=>(
-                                <div className="w-[32%] group mb-[50px]">
-                                    <div className="w-full bg-[#F6F7FB] h-[270px] py-3 flex justify-center relative overflow-hidden group-hover:bg-white">
-                                        <img src={product.thumbnail} alt='latest_product' />
-                                        <div className="absolute bottom-[-150px] left-5 flex flex-col text-[20px] text-[#1389FF] group-hover:bottom-6 duration-500 ease-in-out">
-                                            <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FiShoppingCart /></div>
-                                            <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FaRegHeart /></div>
-                                            <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><LuZoomIn /></div>
+                                {Featured.map((product) => (
+                                    <div className="w-[32%] group mb-[50px]">
+                                        <div className="w-full bg-[#F6F7FB] h-[270px] py-3 flex justify-center relative overflow-hidden group-hover:bg-white">
+                                            <img src={product.thumbnail} alt='latest_product' />
+                                            <div className="absolute bottom-[-150px] left-5 flex flex-col text-[20px] text-[#1389FF] group-hover:bottom-6 duration-500 ease-in-out">
+                                                <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FiShoppingCart /></div>
+                                                <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FaRegHeart /></div>
+                                                <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><LuZoomIn /></div>
+                                            </div>
+                                            <div className="absolute top-[-40px] left-2 -rotate-[0] duration-700 ease-in-out group-hover:-rotate-[25deg] group-hover:top-7">
+                                                <h5 className='text-[16px] text-[#FFF] px-[50px] py-2 bg-[#3F509E]'>Sale</h5>
+                                            </div>
                                         </div>
-                                        <div className="absolute top-[-40px] left-2 -rotate-[0] duration-700 ease-in-out group-hover:-rotate-[25deg] group-hover:top-7">
-                                            <h5 className='text-[16px] text-[#FFF] px-[50px] py-2 bg-[#3F509E]'>Sale</h5>
+                                        <div className="flex justify-between pt-3 bg-white">
+                                            <div className="">
+                                                <h4 className='text-[16px] font-normal text-[#151875] relative after:absolute after:content-[""] after:h-[2px] after:w-full after:bg-[#EEEFFB] after:bottom-0 after:left-0'>{product.title}</h4>
+                                            </div>
+                                            <div className="flex">
+                                                <h4 className='text-[16px] font-normal text-[#151875] pr-4'>${product.price}</h4>
+                                                <h5 className='text-[16px] font-normal text-[#FB2448] pr-4 line-through'>$65.00</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex justify-between pt-3 bg-white">
-                                        <div className="">
-                                            <h4 className='text-[16px] font-normal text-[#151875] relative after:absolute after:content-[""] after:h-[2px] after:w-full after:bg-[#EEEFFB] after:bottom-0 after:left-0'>{product.title}</h4>
-                                        </div>
-                                        <div className="flex">
-                                            <h4 className='text-[16px] font-normal text-[#151875] pr-4'>${product.price}</h4>
-                                            <h5 className='text-[16px] font-normal text-[#FB2448] pr-4 line-through'>$65.00</h5>
-                                        </div>
-                                    </div>
-                                </div>
                                 ))}
                             </div>
-                        </Tabs.Content>
-                        <Tabs.Content value="speacial_offer">
+                        </TabPanel>
+                        <TabPanel>
                             <div className="flex justify-between flex-wrap font-jsans">
-                                {SpecialOffer.map((product)=>(
-                                <div className="w-[32%] group">
-                                    <div className="w-full bg-[#F6F7FB] h-[270px] py-3 flex justify-center relative overflow-hidden group-hover:bg-white">
-                                        <img src={product.thumbnail} alt='latest_product' />
-                                        <div className="absolute bottom-[-150px] left-5 flex flex-col text-[20px] text-[#1389FF] group-hover:bottom-6 duration-500 ease-in-out">
-                                            <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FiShoppingCart /></div>
-                                            <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FaRegHeart /></div>
-                                            <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><LuZoomIn /></div>
+                                {SpecialOffer.map((product) => (
+                                    <div className="w-[32%] group">
+                                        <div className="w-full bg-[#F6F7FB] h-[270px] py-3 flex justify-center relative overflow-hidden group-hover:bg-white">
+                                            <img src={product.thumbnail} alt='latest_product' />
+                                            <div className="absolute bottom-[-150px] left-5 flex flex-col text-[20px] text-[#1389FF] group-hover:bottom-6 duration-500 ease-in-out">
+                                                <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FiShoppingCart /></div>
+                                                <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><FaRegHeart /></div>
+                                                <div className="className='cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center cursor-pointer"><LuZoomIn /></div>
+                                            </div>
+                                            <div className="absolute top-[-40px] left-2 -rotate-[0] duration-700 ease-in-out group-hover:-rotate-[25deg] group-hover:top-7">
+                                                <h5 className='text-[16px] text-[#FFF] px-[50px] py-2 bg-[#3F509E]'>Sale</h5>
+                                            </div>
                                         </div>
-                                        <div className="absolute top-[-40px] left-2 -rotate-[0] duration-700 ease-in-out group-hover:-rotate-[25deg] group-hover:top-7">
-                                            <h5 className='text-[16px] text-[#FFF] px-[50px] py-2 bg-[#3F509E]'>Sale</h5>
+                                        <div className="flex justify-between pt-3 bg-white">
+                                            <div className="">
+                                                <h4 className='text-[16px] font-normal text-[#151875] relative after:absolute after:content-[""] after:h-[2px] after:w-full after:bg-[#EEEFFB] after:bottom-0 after:left-0'>{product.title}</h4>
+                                            </div>
+                                            <div className="flex">
+                                                <h4 className='text-[16px] font-normal text-[#151875] pr-4'>${product.price}</h4>
+                                                <h5 className='text-[16px] font-normal text-[#FB2448] pr-4 line-through'>$65.00</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex justify-between pt-3 bg-white">
-                                        <div className="">
-                                            <h4 className='text-[16px] font-normal text-[#151875] relative after:absolute after:content-[""] after:h-[2px] after:w-full after:bg-[#EEEFFB] after:bottom-0 after:left-0'>{product.title}</h4>
-                                        </div>
-                                        <div className="flex">
-                                            <h4 className='text-[16px] font-normal text-[#151875] pr-4'>${product.price}</h4>
-                                            <h5 className='text-[16px] font-normal text-[#FB2448] pr-4 line-through'>$65.00</h5>
-                                        </div>
-                                    </div>
-                                </div>
                                 ))}
                             </div>
-                        </Tabs.Content>
-                    </Tabs.Root>
+                        </TabPanel>
+                    </Tabs>
                 </div>
             </Container>
         </section>

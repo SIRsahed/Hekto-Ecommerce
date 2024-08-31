@@ -104,7 +104,7 @@ const Shop = () => {
                   </div>
                   <div className={`flex gap-x-4 ${viewMode === 'list' ? 'justify-start' : 'justify-center'}`}>
                     <h5 className='text-[#151875] text-[18px] font-jsans font-normal'>${product.price}</h5>
-                    <span className='text-[18px] font-jsans font-normal line-through text-[#FB2E86]'>${(product.price + 10/100).toFixed(2)}</span>
+                    <span className='text-[18px] font-jsans font-normal line-through text-[#FB2E86]'>${(product.price + 10 / 100).toFixed(2)}</span>
                     {viewMode === "list" &&
                       <div className="flex gap-x-2 text-[#FFC416]">
                         <FaStar />
