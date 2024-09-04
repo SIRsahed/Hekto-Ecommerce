@@ -1,24 +1,24 @@
 import React from 'react'
 import Container from './Container'
-import { Tabs } from '@ark-ui/react'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { FaCheck } from "react-icons/fa6";
 import DisImage from '../assets/dis.png'
 
 
 const DiscountItem = () => {
     return (
-        <section className='sec_pad'>
+        <section className='sec_pad disproduct'>
             <Container>
                 <div className="text-center">
                     <h2 className='heading'>Discount Item</h2>
                 </div>
-                <Tabs.Root defaultValue="new_arrival">
-                    <Tabs.List className='flex gap-x-20 justify-center mb-[100px]'>
-                        <Tabs.Trigger value="new_arrival" className='text-[18px] font-bold text-[#151875] font-lato'>Wood Chair</Tabs.Trigger>
-                        <Tabs.Trigger value="best_seller" className='text-[18px] font-bold text-[#151875] font-lato'>Plastic Chair</Tabs.Trigger>
-                        <Tabs.Trigger value="featured" className='text-[18px] font-bold text-[#151875] font-lato'>Sofa Colletion</Tabs.Trigger>
-                    </Tabs.List>
-                    <Tabs.Content value="new_arrival">
+                <Tabs>
+                    <TabList className='flex gap-x-20 justify-center mb-[100px]'>
+                        <Tab><h3 className='text-[18px] font-bold font-lato px-5'>Wood Chair</h3></Tab>
+                        <Tab><h3 className='text-[18px] font-bold font-lato px-5'>Plastic Chair</h3></Tab>
+                        <Tab><h3 className='text-[18px] font-bold font-lato px-5'>Sofa Colletion</h3></Tab>
+                    </TabList>
+                    <TabPanel value="new_arrival">
                         <div className="flex justify-between">
                             <div className="w-[45%]">
                                 <div className="">
@@ -28,19 +28,19 @@ const DiscountItem = () => {
                                 </div>
                                 <div className="flex justify-between flex-wrap pb-12">
                                     <div className="flex gap-x-2 items-center pb-4">
-                                        <FaCheck/>
+                                        <FaCheck />
                                         <h3 className='text-[16px] font-normal text-[#B8B8DC] font-lato'>Material expose like metals</h3>
                                     </div>
                                     <div className="flex gap-x-2 items-center pb-4">
-                                        <FaCheck/>
+                                        <FaCheck />
                                         <h3 className='text-[16px] font-normal text-[#B8B8DC] font-lato'>Material expose like metals</h3>
                                     </div>
                                     <div className="flex gap-x-2 items-center">
-                                        <FaCheck/>
+                                        <FaCheck />
                                         <h3 className='text-[16px] font-normal text-[#B8B8DC] font-lato'>Material expose like metals</h3>
                                     </div>
                                     <div className="flex gap-x-2 items-center">
-                                        <FaCheck/>
+                                        <FaCheck />
                                         <h3 className='text-[16px] font-normal text-[#B8B8DC] font-lato'>Material expose like metals</h3>
                                     </div>
                                 </div>
@@ -52,8 +52,8 @@ const DiscountItem = () => {
                                 <img className='w-4/5 -mt-8' src={DisImage} alt="discount_image" />
                             </div>
                         </div>
-                    </Tabs.Content>
-                </Tabs.Root>
+                    </TabPanel>
+                </Tabs>
             </Container>
         </section>
     )

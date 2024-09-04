@@ -5,8 +5,13 @@ import { FaRegUser } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
 import Container from './Container';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+
+    let data = useSelector((state)=> state.cartManagement.cartItem)
+
     return (
         <section className='bg-[#7E33E0] text-white'>
             <Container>
@@ -21,7 +26,7 @@ const Header = () => {
                             <h3>+880 1609-302239</h3>
                         </div>
                     </div>
-                    <div className="w-[60%] flex justify-end text-end font-jsans">
+                    <div className="w-[60%] flex justify-end text-end font-jsans pr-9">
                         <ul className='flex gap-x-6'>
                             <li>
                                 <select name="" id="" className='bg-[#7E33E0] outline-none'>
@@ -37,7 +42,16 @@ const Header = () => {
                             </li>
                             <li className='flex gap-x-2'>Login <FaRegUser /></li>
                             <li className='flex gap-x-2'>Wishlist <FaRegHeart /></li>
-                            <li className='text-[22px]'><FiShoppingCart /></li>
+                            <li className='text-[20px] relative'>
+                                <div className="">
+                                    <Link to="/cart">
+                                        <FiShoppingCart />
+                                    </Link>
+                                </div>
+                                <div className="absolute -top-3 -right-3 h-5 w-5 rounded-full bg-[#FB2E86] flex justify-center items-center">
+                                    <span className='text-[14px] font-lato'>{data.length}</span>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>

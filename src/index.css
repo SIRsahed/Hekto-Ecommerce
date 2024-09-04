@@ -31,8 +31,22 @@
     padding-bottom: 10px;
     border-bottom: none;
 }
+.disproduct .react-tabs__tab-list{
+    padding-bottom: 10px;
+    border-bottom: none;
+}
 .lateproducts .react-tabs__tab--selected {
     border: none !important;
     text-decoration: underline;
     color: #FB2E86 !important;
+}
+.disproduct .react-tabs__tab--selected {
+    border: none !important;
+    text-decoration: underline;
+    color: #FB2E86 !important;
+    outline: none !important;
+}
+
+.Toastify__toast-theme--light {
+    width: 330px;
 }

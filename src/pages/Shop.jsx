@@ -10,6 +10,9 @@ import { apidata } from '../components/ContextApi';
 import Logos from '../components/Logos'
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { addToCart } from '../components/CartSlice';
+import { useDispatch } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Shop = () => {
   const [viewMode, setViewMode] = useState('grid');
@@ -30,6 +33,13 @@ const Shop = () => {
       setCurrentPage(page);
       window.scrollTo({ top: 0, behavior: 'smooth' });  // Scroll to top smoothly
     }
+  }
+
+  let dispatch = useDispatch()
+
+  let handleAddToCart = (item) => {
+    dispatch(addToCart(item))
+    toast.success("Added To Cart Successfully")
   }
 
   return (
@@ -87,7 +97,20 @@ const Shop = () => {
                   </Link>
                   {viewMode === 'grid' && (
                     <div className="absolute bottom-[-150px] left-5 flex flex-col text-[20px] text-[#151875] group-hover:bottom-6 duration-500 ease-in-out">
-                      <div className="cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#FFF] flex justify-center items-center"><FiShoppingCart /></div>
+                      <div className="cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#FFF] flex justify-center items-center" onClick={() => handleAddToCart(product)} ><FiShoppingCart />
+                      </div>
+                        <ToastContainer
+                        position="top-right"
+                        autoClose={500}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                        />
                       <div className="cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#FFF] flex justify-center items-center"><FaRegHeart /></div>
                       <div className="cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#FFF] flex justify-center items-center"><LuZoomIn /></div>
                     </div>
@@ -119,7 +142,20 @@ const Shop = () => {
                     <div className="">
                       <p className='text-[17px] font-lato font-normal leading-8 text-[#9295AA]'>{product.description}</p>
                       <div className="flex gap-x-2 text-[20px] text-[#151875] group-hover:bottom-6 duration-500 ease-in-out pt-2">
-                        <div className="cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center"><FiShoppingCart /></div>
+                        <div className="cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center" onClick={() => handleAddToCart(product)}><FiShoppingCart />
+                        <ToastContainer
+                        position="top-right"
+                        autoClose={500}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                        />
+                        </div>
                         <div className="cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center"><FaRegHeart /></div>
                         <div className="cursor-pointer h-[45px] w-[45px] rounded-full hover:bg-[#EEEFFB] flex justify-center items-center"><LuZoomIn /></div>
                       </div>
