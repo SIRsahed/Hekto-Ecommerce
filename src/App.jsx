@@ -5,6 +5,7 @@ import Shop from "./pages/Shop"
 import ProductDetails from "./pages/ProductDetails"
 import Cart from "./pages/Cart"
 import Checkout from "./pages/Checkout"
+import About from "./pages/About"
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path="/shop/:id" element={<ProductDetails/>}/>
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/checkout" element={<Checkout/>}/>
+      <Route path="/about-us" element={<About/>}/>
     </Route>
   ))
 
