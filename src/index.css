@@ -50,3 +50,6 @@
 .Toastify__toast-theme--light {
     width: 330px;
 }
+.slick-dots .slick-active .abc {
+    background-color: #FB2E86 !important;
+}

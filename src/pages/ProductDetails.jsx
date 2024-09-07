@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PDetailsInfo from '../components/PDetailsInfo'
 import PDetailsMain from '../components/PDetailsMain'
 import PageHeadingReUsable from '../components/PageHeadingReUsable'
 import Logos from '../components/Logos'
+import { apidata } from '../components/ContextApi'
 
 const ProductDetails = () => {
 

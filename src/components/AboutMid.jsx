@@ -5,12 +5,12 @@ import Wf2 from '../assets/wf2.png'
 import Wf3 from '../assets/wf3.png'
 import Wf4 from '../assets/wf4.png'
 
-const WhatOffer = () => {
+const AboutMid = () => {
     return (
-        <section className='sec_pad'>
+        <section className="sec_pad">
             <Container>
                 <div className="text-center">
-                    <h2 className='heading'>What Shopex Offer!</h2>
+                    <h2 className='heading'>Our Features</h2>
                 </div>
                 <div className="flex justify-between">
                     <div className="w-[24%] py-[50px] px-[25px] text-center bg-[#FFF] shadow-lg hover:border-b-2 border-[#FF9100]">
@@ -47,4 +47,4 @@ const WhatOffer = () => {
     )
 }
 
-export default WhatOffer
+export default AboutMid

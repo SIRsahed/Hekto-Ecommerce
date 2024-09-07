@@ -38,7 +38,7 @@ const Shop = () => {
   let dispatch = useDispatch()
 
   let handleAddToCart = (item) => {
-    dispatch(addToCart(item))
+    dispatch(addToCart({...item, Qty: 1}))
     toast.success("Added To Cart Successfully")
   }
 

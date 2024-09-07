@@ -3,7 +3,7 @@ import PageHeadingReUsable from '../components/PageHeadingReUsable'
 import Container from '../components/Container'
 import { GiCrossedSabres } from "react-icons/gi";
 import { useDispatch, useSelector } from 'react-redux';
-import { clearCart, deletion, increment } from '../components/CartSlice';
+import { clearCart, decrement, deletion, increment } from '../components/CartSlice';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
@@ -12,8 +12,12 @@ const Cart = () => {
 
     let dispatch = useDispatch()
 
-    let handleIncrement = (item) => {
-        dispatch(increment(item))
+    let handleIncrement = (index) => {
+        dispatch(increment(index))
+    }
+
+    let handleDecrement = (index) => {
+        dispatch(decrement(index))
     }
 
     let handleDeleteProduct = (index) => {
@@ -85,9 +89,9 @@ const Cart = () => {
                                         </div>
                                         <div className="w-1/5 flex justify-center">
                                             <div className="flex gap-x-6 bg-[#E7E7EF] justify-around items-center">
-                                                <div className="cursor-pointer bg-[#BEBFC2] px-2" onClick={() => handleDecrement(product)}>-</div>
+                                                <div className="cursor-pointer bg-[#BEBFC2] px-2" onClick={() => handleDecrement(index)}>-</div>
                                                 <div className="">{product.Qty}</div>
-                                                <div className="cursor-pointer bg-[#BEBFC2] px-2" onClick={() => handleIncrement(product)}>+</div>
+                                                <div className="cursor-pointer bg-[#BEBFC2] px-2" onClick={() => handleIncrement(index)}>+</div>
                                             </div>
                                         </div>
                                         <div className="w-1/5 flex justify-center">
