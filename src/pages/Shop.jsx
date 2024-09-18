@@ -118,7 +118,7 @@ const Shop = () => {
                 </div>
                 <div className={`${viewMode === 'list' ? 'items-center w-3/4 text-left' : 'pt-4 text-center'}`}>
                   <div className="relative inline-block">
-                    <h2 className='text-[#151875] text-[18px] font-jsans font-bold pb-3'>{product.title}</h2>
+                    <h2 className='text-[#151875] text-[18px] w-[250px] overflow-hidden text-ellipsis whitespace-nowrap font-jsans font-bold pb-3'>{product.title}</h2>
                     <div className={`flex justify-center gap-x-2 pb-4 ${viewMode === 'list' ? 'absolute top-[50%] -translate-y-[50%] -right-20' : ''}`}>
                       <div className="h-3 w-3 rounded-full bg-[#DE9034] "></div>
                       <div className="h-3 w-3 rounded-full bg-[#EC42A2] "></div>
