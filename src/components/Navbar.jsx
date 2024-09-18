@@ -17,7 +17,7 @@ const Navbar = () => {
         if (e.target.value == "") {
             setSearchFilter([])
         } else {
-            let filter = data.filter((item) => item.title.toLowerCase().includes(e.target.value))
+            let filter = data.filter((item) => item.title.toLowerCase().startsWith(e.target.value.toLowerCase()))
             setSearchFilter(filter)
         }
     }
@@ -26,7 +26,6 @@ const Navbar = () => {
     let handlePDfromSearch = (id) => {
         navigate(`/shop/${id}`)
         setSearchFilter([])
-        searchInput("")
     }
 
 
@@ -52,14 +51,14 @@ const Navbar = () => {
                             <input value={searchInput} onChange={handleSearch} type="search" className='w-[85%] bg-[#D9D9D9] h-[40px] outline-none px-5' />
                             <IoSearch className='w-[15%] bg-[#FB2E86] h-[40px] py-[10px] text-white' />
                             {searchFilter.length > 0 &&
-                                <div className="absolute top-10 left-0 z-40 h-screen overflow-y-scroll">
+                                <div className="absolute top-10 left-0 z-40 w-full max-h-[500px] overflow-y-auto">
                                     {searchFilter.map((item) => (
                                         <div onClick={()=>handlePDfromSearch(item.id)} className="border-b-2">
-                                            <div className="flex justify-between items-center bg-[#F5F5F3] lg:px-5 px-3 py-1">
-                                                <div className="w-[30%]">
-                                                    <img className='h-[80px] w-full' src={item.thumbnail} alt="cart" />
+                                            <div className="flex justify-between items-center bg-[#F5F5F3] lg:px-5 px-3 py-1 cursor-pointer">
+                                                <div className="w-[25%]">
+                                                    <img className='w-full' src={item.thumbnail} alt="cart" />
                                                 </div>
-                                                <div className="w-[60%] text-[#262626] text-[16px] font-sans font-bold">
+                                                <div className="w-[70%] text-[#262626] text-[16px] font-sans font-bold">
                                                     <h3 className='pb-[12px]'>{item.title}</h3>
                                                 </div>
                                             </div>
